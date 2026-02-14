@@ -146,13 +146,13 @@
     display: flex;
     gap: 14px;
     flex-wrap: wrap;
-    font-size: 0.68rem;
+    font-size: 0.8rem;
     color: var(--text-muted);
     background: var(--bg);
     border-bottom: 1px solid var(--border);
   }
-  .legend-item { display: flex; align-items: center; gap: 4px; }
-  .legend-dot { width: 9px; height: 9px; border-radius: 3px; }
+  .legend-item { display: flex; align-items: center; gap: 5px; }
+  .legend-dot { width: 10px; height: 10px; border-radius: 3px; }
 
   /* ======================== */
   /* SINGLE MONTH VIEW        */
@@ -167,32 +167,18 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 20px;
-    padding: 10px 20px;
+    padding: 6px 20px;
     background: var(--bg);
   }
 
-  .month-nav-btn {
-    background: var(--card-bg);
-    border: 1.5px solid var(--border);
-    border-radius: 8px;
-    width: 40px; height: 40px;
-    font-size: 1.1rem;
-    cursor: pointer;
-    display: flex; align-items: center; justify-content: center;
-    transition: all 0.12s;
-    color: var(--text);
-  }
-  .month-nav-btn:active { background: #eee; }
-
   .month-nav-title {
-    font-size: 1.2rem;
-    font-weight: 600;
-    min-width: 180px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    min-width: 200px;
     text-align: center;
   }
   .month-nav-title .year {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     font-weight: 400;
     color: var(--text-muted);
     font-family: 'Nunito', sans-serif;
@@ -202,9 +188,9 @@
   .single-month-body {
     flex: 1;
     display: flex;
-    align-items: flex-start;
+    align-items: stretch;
     justify-content: center;
-    padding: 0 20px 20px;
+    padding: 0 10px 10px;
     overflow: hidden;
     position: relative;
   }
@@ -212,7 +198,7 @@
   .swipe-area {
     flex: 1;
     display: flex;
-    align-items: flex-start;
+    align-items: stretch;
     justify-content: center;
     width: 100%;
     touch-action: pan-y;
@@ -224,14 +210,16 @@
     box-shadow: var(--shadow-lg);
     border: 1px solid var(--border);
     width: 100%;
-    max-width: 820px;
+    max-width: 100%;
   }
 
   .single-month-card .month-grid {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    padding: 10px 16px 16px;
-    gap: 2px;
+    padding: 8px 12px 12px;
+    gap: 0;
+    height: 100%;
+    align-content: start;
   }
 
   .single-month-card .month-grid .day-cell:nth-child(n+8) {
@@ -244,31 +232,32 @@
 
   .single-month-card .weekday-header {
     text-align: center;
-    font-size: 0.85rem;
+    font-size: 1.1rem;
     font-weight: 500;
-    padding: 8px 0;
+    padding: 6px 0;
     color: var(--text-muted);
     letter-spacing: 0.05em;
   }
 
   .single-month-card .day-cell {
-    min-height: 76px;
-    padding: 6px 2px;
+    min-height: 11vh;
+    padding: 8px 2px;
     border-radius: 8px;
   }
 
   .single-month-card .day-num {
-    font-size: 2rem;
+    font-size: 2.8rem;
     font-weight: 700;
   }
 
   .single-month-card .day-count {
-    font-size: 0.62rem;
+    font-size: 0.95rem;
     margin-top: 2px;
+    font-weight: 600;
   }
 
   .single-month-card .day-label {
-    font-size: 0.58rem;
+    font-size: 0.7rem;
     margin-top: 2px;
   }
 
@@ -342,27 +331,27 @@
 
   .scroll-content .weekday-header {
     text-align: center;
-    font-size: 0.62rem;
+    font-size: 0.8rem;
     font-weight: 500;
-    padding: 3px 0;
+    padding: 4px 0;
     color: var(--text-muted);
   }
 
   .scroll-content .day-cell {
-    min-height: 42px;
-    padding: 3px 1px;
+    min-height: 52px;
+    padding: 4px 1px;
   }
 
   .scroll-content .day-num {
-    font-size: 1.25rem;
+    font-size: 1.4rem;
   }
 
   .scroll-content .day-count {
-    font-size: 0.48rem;
+    font-size: 0.6rem;
   }
 
   .scroll-content .day-label {
-    font-size: 0.42rem;
+    font-size: 0.5rem;
   }
 
   /* ======================== */
@@ -430,13 +419,13 @@
 
   /* Today */
   .day-cell.today {
-    background: var(--today-bg) !important;
+    background: rgba(230, 126, 34, 0.25) !important;
     border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    box-shadow: 0 0 0 2px rgba(230, 126, 34, 0.5);
   }
-  .day-cell.today .day-num { color: var(--today-text) !important; font-weight: 700; }
-  .day-cell.today .day-count { color: var(--today-text) !important; opacity: 1; font-weight: 600; }
-  .day-cell.today .day-label { color: var(--today-text) !important; }
+  .day-cell.today .day-num { color: #d35400 !important; font-weight: 700; }
+  .day-cell.today .day-count { color: #d35400 !important; opacity: 1; font-weight: 600; }
+  .day-cell.today .day-label { color: #d35400 !important; }
 
   /* === TODAY FAB === */
   .today-fab {
@@ -614,19 +603,17 @@
   <!-- SINGLE MONTH VIEW -->
   <div class="single-view" id="singleView">
     <div class="legend">
-      <div class="legend-item"><div class="legend-dot" style="background:var(--today-bg)"></div>今日</div>
+      <div class="legend-item"><div class="legend-dot" style="background:rgba(230,126,34,0.5)"></div>今日</div>
       <div class="legend-item"><div class="legend-dot" style="background:var(--sunday-text)"></div>日曜</div>
       <div class="legend-item"><div class="legend-dot" style="background:var(--saturday-text)"></div>土曜</div>
       <div class="legend-item"><div class="legend-dot" style="background:var(--holiday-text)"></div>祝日</div>
       <div class="legend-item"><div class="legend-dot" style="background:#5a9e6f"></div>休診</div>
-      <div class="legend-item" style="margin-left:auto; font-family:'JetBrains Mono',monospace; font-size:0.65rem; color:#c0392b;">
+      <div class="legend-item" style="margin-left:auto; font-family:'JetBrains Mono',monospace; font-size:0.78rem; color:#c0392b;">
         -3=3日前　0=今日　+3=3日後
       </div>
     </div>
     <div class="month-nav">
-      <button class="month-nav-btn" onclick="navMonth(-1)">◀</button>
       <div class="month-nav-title" id="singleMonthTitle"></div>
-      <button class="month-nav-btn" onclick="navMonth(1)">▶</button>
     </div>
     <div class="single-month-body">
       <div class="swipe-area" id="swipeArea">
@@ -638,12 +625,12 @@
   <!-- SCROLL VIEW -->
   <div class="scroll-view view-hidden" id="scrollView">
     <div class="legend">
-      <div class="legend-item"><div class="legend-dot" style="background:var(--today-bg)"></div>今日</div>
+      <div class="legend-item"><div class="legend-dot" style="background:rgba(230,126,34,0.5)"></div>今日</div>
       <div class="legend-item"><div class="legend-dot" style="background:var(--sunday-text)"></div>日曜</div>
       <div class="legend-item"><div class="legend-dot" style="background:var(--saturday-text)"></div>土曜</div>
       <div class="legend-item"><div class="legend-dot" style="background:var(--holiday-text)"></div>祝日</div>
       <div class="legend-item"><div class="legend-dot" style="background:#5a9e6f"></div>休診</div>
-      <div class="legend-item" style="margin-left:auto; font-family:'JetBrains Mono',monospace; font-size:0.65rem; color:#c0392b;">
+      <div class="legend-item" style="margin-left:auto; font-family:'JetBrains Mono',monospace; font-size:0.78rem; color:#c0392b;">
         -3=3日前　0=今日　+3=3日後
       </div>
     </div>
@@ -975,23 +962,58 @@ function renderAll() {
   else renderScrollView();
 }
 
-// Swipe
+// Swipe on entire single view
 (function() {
   let startX = 0, startY = 0, swiping = false;
-  const area = document.getElementById('swipeArea');
-  area.addEventListener('touchstart', e => {
+  const view = document.getElementById('singleView');
+  const card = document.getElementById('singleMonthCard');
+
+  view.addEventListener('touchstart', e => {
     startX = e.touches[0].clientX;
     startY = e.touches[0].clientY;
     swiping = true;
   }, { passive: true });
-  area.addEventListener('touchend', e => {
+
+  view.addEventListener('touchmove', e => {
+    if (!swiping) return;
+    const dx = e.touches[0].clientX - startX;
+    const dy = e.touches[0].clientY - startY;
+    // If horizontal swipe, show subtle drag feedback
+    if (Math.abs(dx) > 20 && Math.abs(dx) > Math.abs(dy)) {
+      card.style.transform = `translateX(${dx * 0.3}px)`;
+      card.style.opacity = `${1 - Math.abs(dx) * 0.0005}`;
+    }
+  }, { passive: true });
+
+  view.addEventListener('touchend', e => {
     if (!swiping) return;
     swiping = false;
     const dx = e.changedTouches[0].clientX - startX;
     const dy = e.changedTouches[0].clientY - startY;
-    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5) {
-      if (dx < 0) navMonth(1);
-      else navMonth(-1);
+
+    if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.2) {
+      const direction = dx < 0 ? 1 : -1;
+      // Slide out
+      card.style.transition = 'transform 0.18s ease-out, opacity 0.18s ease-out';
+      card.style.transform = `translateX(${direction * -120}px)`;
+      card.style.opacity = '0';
+      setTimeout(() => {
+        navMonth(direction);
+        // Slide in from opposite side
+        card.style.transition = 'none';
+        card.style.transform = `translateX(${direction * 120}px)`;
+        card.style.opacity = '0';
+        requestAnimationFrame(() => {
+          card.style.transition = 'transform 0.2s ease-out, opacity 0.2s ease-out';
+          card.style.transform = 'translateX(0)';
+          card.style.opacity = '1';
+        });
+      }, 180);
+    } else {
+      // Snap back
+      card.style.transition = 'transform 0.15s ease-out, opacity 0.15s ease-out';
+      card.style.transform = 'translateX(0)';
+      card.style.opacity = '1';
     }
   }, { passive: true });
 })();
