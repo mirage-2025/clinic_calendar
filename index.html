@@ -755,9 +755,38 @@ currentYear=t.getFullYear(); currentMonth=t.getMonth();
 document.getElementById('headerDate').textContent=`${t.getFullYear()}年${t.getMonth()+1}月${t.getDate()}日（${WEEKDAYS[t.getDay()]}）`;
 loadSettings(); setMode(settings.mode);
 
+// Track last known date to detect day change
+let lastDateStr = dateKey(getToday());
+
+function checkDateChange() {
+  const nowStr = dateKey(getToday());
+  if (nowStr !== lastDateStr) {
+    lastDateStr = nowStr;
+    const t = getToday();
+    currentYear = t.getFullYear();
+    currentMonth = t.getMonth();
+    document.getElementById('headerDate').textContent =
+      `${t.getFullYear()}年${t.getMonth()+1}月${t.getDate()}日（${WEEKDAYS[t.getDay()]}）`;
+    renderAll();
+  }
+}
+
+// Re-check when page becomes visible (covers iPad sleep/wake, tab switch, PWA resume)
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'visible') checkDateChange();
+});
+// Also handle bfcache (back-forward cache) used by Safari
+window.addEventListener('pageshow', (e) => {
+  checkDateChange();
+});
+// Also check on focus
+window.addEventListener('focus', () => {
+  checkDateChange();
+});
+
 function scheduleRefresh(){
   const now=new Date(), tom=new Date(now.getFullYear(),now.getMonth(),now.getDate()+1);
-  setTimeout(()=>{ renderAll(); scheduleRefresh(); }, tom-now+1000);
+  setTimeout(()=>{ checkDateChange(); scheduleRefresh(); }, tom-now+1000);
 }
 scheduleRefresh();
 </script>
